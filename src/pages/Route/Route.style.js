@@ -20,4 +20,22 @@ export default StyleSheet.create({
     color: theme.colors.darkGray,
     marginBottom: theme.grid.x1,
   },
+  title: {
+    textAlign: 'center'
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    borderColor: 'red',
+    borderWidth: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  searchInput: {
+    height: 50,
+    borderColor: 'green',
+    borderWidth: 1,
+    width: 100,
+    alignSelf: 'center'
+  }
 });
