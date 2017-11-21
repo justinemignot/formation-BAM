@@ -14,10 +14,12 @@ export default class Dashboard extends Component {
   props: PropsType;
 
   render() {
+    const { params } = this.props.navigation.state;
     return (
       <Page>
         <View>
           <Text> This is the dashboard </Text>
+          <Text>{params.userInfo.login}</Text>
         </View>
       </Page>
     );

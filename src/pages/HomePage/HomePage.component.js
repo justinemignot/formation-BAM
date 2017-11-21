@@ -48,7 +48,7 @@ export default class HomePage extends Component {
             isLoading: false
           })
         } else {
-          navigate('dashboard');
+          navigate('dashboard',  { userInfo: res});
           this.setState({
             isLoading: false,
             error: false,
