@@ -33,7 +33,8 @@ export default class Dashboard extends Component {
   }
 
   goToProfile = (event) => {
-    console.log("going to Profile")
+    const { navigate } = this.props.navigation;
+    navigate('dashboard',  { userInfo: res});
   }
 
   goToRepos = (event) => {
