@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Text, View, TextInput, TouchableHighlight } from 'react-native';
+import { Text, View, TextInput, TouchableHighlight, ActivityIndicator } from 'react-native';
 
 import { Page } from 'firstAppReactNative/src/components';
 import { Dashboard } from '../Dashboard';
@@ -61,6 +61,9 @@ export default class HomePage extends Component {
   }
 
   render() {
+    var showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    );
     return (
       <Page>
         <View style={styles.container}>
@@ -77,6 +80,12 @@ export default class HomePage extends Component {
               underlayColor= "white">
               <Text>SEARCH</Text>
           </TouchableHighlight>
+          <ActivityIndicator
+            animating={this.state.isLoading}
+            color="#111"
+            size="large">
+          </ActivityIndicator>
+          {showErr}
         </View>
       </Page>
     );

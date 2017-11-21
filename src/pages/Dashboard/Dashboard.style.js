@@ -6,18 +6,14 @@ import theme from 'firstAppReactNative/src/theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 65,
   },
-  welcome: {
-    ...theme.fonts.header,
-    textAlign: 'center',
-    margin: theme.grid.x1,
+  image:{
+    height: 350
   },
-  instructions: {
-    ...theme.fonts.default,
-    textAlign: 'center',
-    color: theme.colors.darkGray,
-    marginBottom: theme.grid.x1,
-  },
+  buttonText: {
+    fontSize: 24,
+    color: 'white',
+    alignSelf: 'center'
+  }
 });
