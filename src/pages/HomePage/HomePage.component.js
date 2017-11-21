@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 import { Text, View, TextInput, TouchableHighlight } from 'react-native';
 
 import { Page } from 'firstAppReactNative/src/components';
+import { Dashboard } from '../Dashboard';
 
-import styles from './Route.style';
+import styles from './HomePage.style';
 
-export default class Route extends Component {
+import api from '../../utils/api';
+
+export default class HomePage extends Component {
   static navigationOptions = {
-    title: 'Route',
+    title: 'Home',
   };
   props: PropsType;
 
@@ -22,19 +25,37 @@ export default class Route extends Component {
     }
   }
 
-  handleChange(event){
+  handleChange = (event) => {
     this.setState({
       username: event.nativeEvent.text
     })
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     //update our indicatorIOS spinner
     this.setState({
       isLoading: true
     })
-    console.log('submit', this.state.username);
 
+    const { navigate } = this.props.navigation;
+
+    api.getBio(this.state.username)
+      .then((res) => {
+        if(res.message === 'Not Found') {
+          console.log("user not found")
+          this.setState({
+            error: 'User not found',
+            isLoading: false
+          })
+        } else {
+          navigate('dashboard');
+          this.setState({
+            isLoading: false,
+            error: false,
+            username: ''
+          })
+        }
+      })
     //fetch data from github
     //reroute to the next passing that github information
   }
@@ -49,10 +70,10 @@ export default class Route extends Component {
           <TextInput
             style={styles.searchInput}
             value={this.state.username}
-            onChange={this.handleChange.bind(this)} />
+            onChange={this.handleChange} />
           <TouchableHighlight
               style={styles.button}
-              onPress={this.handleSubmit.bind(this)}
+              onPress={this.handleSubmit}
               underlayColor= "white">
               <Text>SEARCH</Text>
           </TouchableHighlight>

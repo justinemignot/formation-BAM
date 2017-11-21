@@ -1,4 +1,4 @@
 // @flow
 
-export { default as Home } from './Home';
-export { default as Route } from './Route';
+export { default as HomePage } from './HomePage';
+export { default as Dashboard } from './Dashboard';

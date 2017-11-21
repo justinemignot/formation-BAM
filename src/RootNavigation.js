@@ -6,11 +6,11 @@ import * as Pages from 'firstAppReactNative/src/pages';
 
 export default StackNavigator({
   home: {
-    screen: Pages.Home,
-  },
-  route: {
-    screen: Pages.Route,
+    screen: Pages.HomePage,
+  }, 
+  dashboard: {
+    screen: Pages.Dashboard
   }
 }, {
-  initialRouteName: 'route',
+  initialRouteName: 'home',
 });
