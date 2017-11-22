@@ -34,7 +34,8 @@ export default class Dashboard extends Component {
 
   goToProfile = (event) => {
     const { navigate } = this.props.navigation;
-    navigate('dashboard',  { userInfo: res});
+    const { params } = this.props.navigation.state;
+    navigate('profile',  { userInfo: params.userInfo });
   }
 
   goToRepos = (event) => {
@@ -47,7 +48,6 @@ export default class Dashboard extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    console.log(params.userInfo.avatar_url)
     return (
       <Page>
         <View style={styles.container}>

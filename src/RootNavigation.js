@@ -10,6 +10,9 @@ export default StackNavigator({
   }, 
   dashboard: {
     screen: Pages.Dashboard
+  },
+  profile: {
+    screen: Pages.Profile
   }
 }, {
   initialRouteName: 'home',

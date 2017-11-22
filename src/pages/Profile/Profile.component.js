@@ -7,7 +7,7 @@ import { Page } from 'firstAppReactNative/src/components';
 
 import styles from './Profile.style';
 
-import Badge from '../../components/';
+import {Badge} from '../../components/';
 
 export default class Profile extends Component {
 
@@ -17,7 +17,8 @@ export default class Profile extends Component {
   }
 
   render(){
-    var userInfo = this.props.userInfo;
+    const { params } = this.props.navigation.state;
+    var userInfo = params.userInfo;
     var topicArr = [ 'company', 'location', 'followers', 'following']
     var list = topicArr.map((item, index) => {
       if (!userInfo[item]) {
@@ -33,7 +34,7 @@ export default class Profile extends Component {
     })
     return (
       <ScrollView style={styles.container}>
-        <Badge userInfo={this.props.userInfo}/>
+        <Badge userInfo={params.userInfo}/>
         {list}
       </ScrollView>
     )
