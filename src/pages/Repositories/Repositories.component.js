@@ -10,7 +10,8 @@ import {Page, Badge, Separator} from '../../components/';
 export default class Repositories extends Component {
 
   openPage = (url) => {
-    console.log("this is the url : ", url);
+    const { navigate } = this.props.navigation;
+    navigate('webView',  { url });
   }
 
   render(){
@@ -22,7 +23,7 @@ export default class Repositories extends Component {
       return (
           <View key={index}>
             <TouchableHighlight
-              onPress={this.openPage(repos[index].html_url)}
+              onPress={() => this.openPage(repos[index].html_url)}
               underlayColor='black'>
               <Text>{repos[index].name}</Text>
             </TouchableHighlight>
@@ -32,7 +33,6 @@ export default class Repositories extends Component {
           </View>
       )
     });
-    console.log("list : ", list)
     return (
       <ScrollView style={styles.container}>
         <Badge userInfo={params.userInfo}/>

@@ -45,7 +45,6 @@ export default class Dashboard extends Component {
     const { params } = this.props.navigation.state;
     api.getRepos(params.userInfo.login)
       .then( (res) => {
-        console.log("res : ", res)
         navigate('repositories',  { userInfo: params.userInfo, repos: res });
       });
   }
