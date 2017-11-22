@@ -3,11 +3,9 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 
-import { Page } from 'firstAppReactNative/src/components';
-
 import styles from './Profile.style';
 
-import {Badge} from '../../components/';
+import {Page, Badge, Separator} from '../../components/';
 
 export default class Profile extends Component {
 
@@ -26,8 +24,9 @@ export default class Profile extends Component {
       } else {
         return (
           <View key={index}>
-            <Text>{this.getRowTitle(userInfo, item)}</Text>
+            <Text style={styles.title}>{this.getRowTitle(userInfo, item)}</Text>
             <Text>{userInfo[item]}</Text>
+            <Separator/>
           </View>
         )
       }

@@ -7,6 +7,8 @@ import { Page } from 'firstAppReactNative/src/components';
 
 import styles from './Dashboard.style';
 
+import api from '../../utils/api';
+
 export default class Dashboard extends Component {
   static navigationOptions = {
     title: 'Dashboard',
@@ -39,7 +41,13 @@ export default class Dashboard extends Component {
   }
 
   goToRepos = (event) => {
-    console.log("going to Repos")
+    const { navigate } = this.props.navigation;
+    const { params } = this.props.navigation.state;
+    api.getRepos(params.userInfo.login)
+      .then( (res) => {
+        console.log("res : ", res)
+        navigate('repositories',  { userInfo: params.userInfo, repos: res });
+      });
   }
 
   goToNotes = (event) => {

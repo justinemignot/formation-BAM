@@ -13,6 +13,9 @@ export default StackNavigator({
   },
   profile: {
     screen: Pages.Profile
+  },
+  repositories: {
+    screen: Pages.Repositories
   }
 }, {
   initialRouteName: 'home',

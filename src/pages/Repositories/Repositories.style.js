@@ -19,5 +19,9 @@ export default StyleSheet.create({
   title: {
     color: 'blue',
     marginTop: 5
+  }, 
+  descr: {
+    fontSize: 14,
+    paddingBottom: 5
   }
 });
