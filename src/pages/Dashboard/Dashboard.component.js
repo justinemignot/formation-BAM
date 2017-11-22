@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Text, View, Image, TouchableHighlight } from 'react-native';
 
-import { Page } from 'firstAppReactNative/src/components';
+import { Page, Note } from 'firstAppReactNative/src/components';
 
 import styles from './Dashboard.style';
 
@@ -50,7 +50,13 @@ export default class Dashboard extends Component {
   }
 
   goToNotes = (event) => {
-    console.log("going to Notes")
+    const { navigate } = this.props.navigation;
+    const { params } = this.props.navigation.state;
+    api.getNotes(params.userInfo.login)
+    .then((res) => {
+      res = res || {};
+      navigate('note', { notes: res, userInfo: params.userInfo});
+    })
   }
 
   render() {

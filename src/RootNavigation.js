@@ -19,6 +19,9 @@ export default StackNavigator({
   },
   webView: {
     screen: Pages.Web
+  }, 
+  note: {
+    screen: Pages.Note
   }
 }, {
   initialRouteName: 'home',
